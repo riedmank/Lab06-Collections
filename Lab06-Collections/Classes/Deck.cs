@@ -1,10 +1,11 @@
 ﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Text;
 
 namespace Lab06_Collections.Classes
 {
-    class Deck<T>
+    public class Deck<T> : IEnumerable
     {
         T[] deck = new T[5];
         int counter = 0;
@@ -18,5 +19,17 @@ namespace Lab06_Collections.Classes
             deck[counter++] = card;
         }
 
+        public IEnumerator<T> GetEnumerator()
+        {
+            for (int i = 0; i < counter; i++)
+            {
+                yield return deck[i];
+            }
+        }
+
+        IEnumerator IEnumerable.GetEnumerator()
+        {
+            return GetEnumerator();   
+        }
     }
 }

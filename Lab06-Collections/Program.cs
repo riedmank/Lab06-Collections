@@ -3,14 +3,9 @@ using Lab06_Collections.Classes;
 
 namespace Lab06_Collections
 {
-    class Program
+    public class Program
     {
-        static void Main(string[] args)
-        {
-            
-        }
-
-        static void DeckOfCards()
+        public static void Main(string[] args)
         {
             Card card1 = new Card(Suit.Hearts, Value.Ace);
             Card card2 = new Card(Suit.Diamonds, Value.King);

@@ -4,7 +4,7 @@ using System.Text;
 
 namespace Lab06_Collections.Classes
 {
-    class Card
+    public class Card
     {
         public Suit Suit { get; set; }
         public Value Value { get; set; }
@@ -16,7 +16,7 @@ namespace Lab06_Collections.Classes
         }
     }
 
-    enum Suit
+    public enum Suit
     {
         Clubs,
         Diamonds,
@@ -24,7 +24,7 @@ namespace Lab06_Collections.Classes
         Spades
     }
 
-    enum Value
+    public enum Value
     {
         Ace = 1,
         Two,
