@@ -21,9 +21,15 @@ namespace Lab06_Collections.Classes
 
         public void Remove(T card)
         {
-            for (int i = 0; i < counter - 1; i++)
+            bool check = deck[0].Equals(card);
+            for (int i = 0; i < counter; i++)
             {
-                if (deck[i].Equals(card))
+                if (!check)
+                {
+                    deck[i] = deck[i];
+                    check = deck[i + 1].Equals(card);
+                }
+                else if (check)
                 {
                     deck[i] = deck[i + 1];
                 }

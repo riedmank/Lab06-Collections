@@ -13,16 +13,32 @@ namespace CollectionsTest
             Card card1 = new Card(Suit.Hearts, Value.Ace);
             Card card2 = new Card(Suit.Diamonds, Value.King);
             Card card3 = new Card(Suit.Spades, Value.Seven);
-            Card card4 = new Card(Suit.Clubs, Value.Ten);
 
             Deck<Card> MyDeck = new Deck<Card>();
 
             MyDeck.Add(card1);
             MyDeck.Add(card2);
             MyDeck.Add(card3);
-            MyDeck.Add(card4);
 
-            //Assert.Contains(card1, MyDeck);
+            Assert.Contains(card2, MyDeck);
+        }
+
+        [Fact]
+        public void CanRemoveFromDeck()
+        {
+            Card card1 = new Card(Suit.Hearts, Value.Ace);
+            Card card2 = new Card(Suit.Diamonds, Value.King);
+            Card card3 = new Card(Suit.Spades, Value.Seven);
+
+            Deck<Card> MyDeck = new Deck<Card>();
+
+            MyDeck.Add(card1);
+            MyDeck.Add(card2);
+            MyDeck.Add(card3);
+
+            MyDeck.Remove(card2);
+
+            Assert.DoesNotContain(card2, MyDeck);
         }
 
         [Fact]

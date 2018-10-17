@@ -52,8 +52,6 @@ namespace Lab06_Collections
 
             Console.WriteLine("");
 
-            MyDeck.Remove(cardToRemove);
-
             foreach (Card item in MyDeck)
             {
                 Console.WriteLine($"{item.Value} of {item.Suit}");
