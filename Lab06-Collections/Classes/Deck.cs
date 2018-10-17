@@ -27,15 +27,39 @@ namespace Lab06_Collections.Classes
                 if (!check)
                 {
                     deck[i] = deck[i];
+                    if (i + 1 == counter)
+                    {
+                        return;
+                    }
+                    else
+                    {
                     check = deck[i + 1].Equals(card);
+                    }
                 }
-                else if (check)
+                else
                 {
                     deck[i] = deck[i + 1];
                 }
             }
             counter--;
         }
+
+        public T FindCardInDeck(int index)
+        {
+            if (index > counter)
+            {
+                return default(T);
+            }
+            else
+            {
+            return deck[index];
+            }
+        }
+
+        //public T ReturnSuit(T suit)
+        //{
+        //    return T;
+        //}
 
         public IEnumerator<T> GetEnumerator()
         {

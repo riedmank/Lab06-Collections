@@ -20,11 +20,13 @@ namespace CollectionsTest
             MyDeck.Add(card2);
             MyDeck.Add(card3);
 
-            //Assert.Contains(card2, MyDeck);
+            Card testCard = MyDeck.FindCardInDeck(1);
+
+            Assert.Equal(card2, testCard);
         }
 
         [Fact]
-        public void CanRemoveFromDeck()
+        public void CanRemoveFromDeckCardExists()
         {
             Card card1 = new Card(Suit.Hearts, Value.Ace);
             Card card2 = new Card(Suit.Diamonds, Value.King);
@@ -38,7 +40,30 @@ namespace CollectionsTest
 
             MyDeck.Remove(card2);
 
-            //Assert.DoesNotContain(card2, MyDeck);
+            Card testCard = MyDeck.FindCardInDeck(2);
+
+            Assert.Equal(default(Card), testCard);
+        }
+
+        [Fact]
+        public void CanRemoveFromDeckCardDoesNotExist()
+        {
+            Card card1 = new Card(Suit.Hearts, Value.Ace);
+            Card card2 = new Card(Suit.Diamonds, Value.King);
+            Card card3 = new Card(Suit.Spades, Value.Seven);
+            Card card4 = new Card(Suit.Clubs, Value.Ten);
+
+            Deck<Card> MyDeck = new Deck<Card>();
+
+            MyDeck.Add(card1);
+            MyDeck.Add(card2);
+            MyDeck.Add(card3);
+
+            MyDeck.Remove(card4);
+
+            Card testCard = MyDeck.FindCardInDeck(4);
+
+            Assert.Equal(default(Card), testCard);
         }
 
         [Fact]

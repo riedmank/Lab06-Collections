@@ -43,7 +43,6 @@ namespace Lab06_Collections
             Console.WriteLine("");
 
             Card cardToRemove = new Card(Suit.Diamonds, Value.Nine);
-            MyDeck.Add(cardToRemove);
 
             foreach (Card item in MyDeck)
             {
@@ -51,6 +50,8 @@ namespace Lab06_Collections
             }
 
             Console.WriteLine("");
+
+            MyDeck.Remove(cardToRemove);
 
             foreach (Card item in MyDeck)
             {
