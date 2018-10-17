@@ -6,7 +6,7 @@ namespace Lab06_Collections
     {
         static void Main(string[] args)
         {
-            Console.WriteLine("Hello World!");
+            
         }
     }
 }
