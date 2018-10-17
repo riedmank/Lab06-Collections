@@ -34,6 +34,30 @@ namespace Lab06_Collections
             MyDeck.Add(card10);
             MyDeck.Add(card11);
             MyDeck.Add(card12);
+
+            foreach (Card item in MyDeck)
+            {
+                Console.WriteLine($"{item.Value} of {item.Suit}");
+            }
+
+            Console.WriteLine("");
+
+            Card cardToRemove = new Card(Suit.Diamonds, Value.Nine);
+            MyDeck.Add(cardToRemove);
+
+            foreach (Card item in MyDeck)
+            {
+                Console.WriteLine($"{item.Value} of {item.Suit}");
+            }
+
+            Console.WriteLine("");
+
+            MyDeck.Remove(cardToRemove);
+
+            foreach (Card item in MyDeck)
+            {
+                Console.WriteLine($"{item.Value} of {item.Suit}");
+            }
         }
     }
 }

@@ -19,6 +19,18 @@ namespace Lab06_Collections.Classes
             deck[counter++] = card;
         }
 
+        public void Remove(T card)
+        {
+            for (int i = 0; i < counter - 1; i++)
+            {
+                if (deck[i].Equals(card))
+                {
+                    deck[i] = deck[i + 1];
+                }
+            }
+            counter--;
+        }
+
         public IEnumerator<T> GetEnumerator()
         {
             for (int i = 0; i < counter; i++)
