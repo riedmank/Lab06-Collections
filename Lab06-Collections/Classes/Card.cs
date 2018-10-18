@@ -7,8 +7,13 @@ namespace Lab06_Collections.Classes
     public class Card
     {
         public Suit Suit { get; set; }
-        public Value Value { get; set; }
+        public virtual Value Value { get; set; }
 
+        /// <summary>
+        /// Card Constructor
+        /// </summary>
+        /// <param name="suit">Suit of the Card</param>
+        /// <param name="value">Value of the Card</param>
         public Card(Suit suit, Value value)
         {
             Suit = suit;

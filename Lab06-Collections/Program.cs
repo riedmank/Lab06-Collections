@@ -57,6 +57,17 @@ namespace Lab06_Collections
             {
                 Console.WriteLine($"{item.Value} of {item.Suit}");
             }
+
+            Console.WriteLine("");
+
+            Deck<Card> searchDeck = new Deck<Card>();
+
+            searchDeck = MyDeck.ShowSuit(Suit.Hearts);
+
+            foreach (Card item in searchDeck)
+            {
+                Console.WriteLine($"{item.Value} of {item.Suit}");
+            }
         }
     }
 }

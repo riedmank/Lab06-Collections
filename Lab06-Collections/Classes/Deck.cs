@@ -10,6 +10,10 @@ namespace Lab06_Collections.Classes
         T[] deck = new T[5];
         int counter = 0;
 
+        /// <summary>
+        /// Add a card to the deck collection
+        /// </summary>
+        /// <param name="card">Takes in the card to be added</param>
         public void Add(T card)
         {
             if (counter == deck.Length)
@@ -19,6 +23,10 @@ namespace Lab06_Collections.Classes
             deck[counter++] = card;
         }
 
+        /// <summary>
+        /// Removes a card from the deck
+        /// </summary>
+        /// <param name="card">The card to be removed</param>
         public void Remove(T card)
         {
             bool check = deck[0].Equals(card);
@@ -44,6 +52,11 @@ namespace Lab06_Collections.Classes
             counter--;
         }
 
+        /// <summary>
+        /// Finds a card in the deck at a specific index
+        /// </summary>
+        /// <param name="index">Integer index in deck</param>
+        /// <returns>Returns card at index in deck</returns>
         public T FindCardInDeck(int index)
         {
             if (index > counter)
@@ -52,15 +65,35 @@ namespace Lab06_Collections.Classes
             }
             else
             {
-            return deck[index];
+                return deck[index];
             }
         }
 
-        //public T ReturnSuit(T suit)
-        //{
-        //    return T;
-        //}
+        /// <summary>
+        /// Creates a new deck and puts only the cards with a specific suit in the deck
+        /// </summary>
+        /// <param name="suit">Takes in a suite</param>
+        /// <returns>Returns a deck of only one suit</returns>
+        public Deck<Card> ShowSuit(Suit suit)
+        {
+            Deck<Card> DeckToReturn = new Deck<Card>();
 
+            for (int i = 0; i < counter; i++)
+            {
+                Card temp = (Card)Convert.ChangeType(deck[i], typeof(Card));
+                
+                if (temp.Suit == suit)
+                {
+                    DeckToReturn.Add(temp);
+                }
+            }
+            return DeckToReturn;
+        }
+
+        /// <summary>
+        /// Creates a foreach method for use by the deck collection
+        /// </summary>
+        /// <returns>Returns every element in the deck</returns>
         public IEnumerator<T> GetEnumerator()
         {
             for (int i = 0; i < counter; i++)
@@ -69,6 +102,10 @@ namespace Lab06_Collections.Classes
             }
         }
 
+        /// <summary>
+        /// Required code from IEnumerable interface
+        /// </summary>
+        /// <returns>Returns GetEnumerator method</returns>
         IEnumerator IEnumerable.GetEnumerator()
         {
             return GetEnumerator();   
