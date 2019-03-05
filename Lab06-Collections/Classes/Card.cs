@@ -31,7 +31,6 @@ namespace Lab06_Collections.Classes
 
     public enum Value
     {
-        Ace = 1,
         Two,
         Three,
         Four,
@@ -43,6 +42,7 @@ namespace Lab06_Collections.Classes
         Ten,
         Jack,
         Queen,
-        King
+        King,
+        Ace
     }
 }

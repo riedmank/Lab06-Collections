@@ -11,15 +11,24 @@ namespace Lab06_Collections.Classes
         int counter = 0;
 
         /// <summary>
+        /// Creates an indexer
+        /// </summary>
+        /// <param name="i">Index</param>
+        /// <returns>returns value at index</returns>
+        public T this[int i]
+        {
+            get { return deck[i]; }
+            set { deck[i] = value; }
+        }
+
+        /// <summary>
         /// Add a card to the deck collection
         /// </summary>
         /// <param name="card">Takes in the card to be added</param>
         public void Add(T card)
         {
             if (counter == deck.Length)
-            {
                 Array.Resize(ref deck, deck.Length * 2);
-            }
             deck[counter++] = card;
         }
 
@@ -36,18 +45,12 @@ namespace Lab06_Collections.Classes
                 {
                     deck[i] = deck[i];
                     if (i + 1 == counter)
-                    {
                         return;
-                    }
                     else
-                    {
                     check = deck[i + 1].Equals(card);
-                    }
                 }
                 else
-                {
                     deck[i] = deck[i + 1];
-                }
             }
             counter--;
         }
@@ -60,13 +63,9 @@ namespace Lab06_Collections.Classes
         public T FindCardInDeck(int index)
         {
             if (index > counter)
-            {
                 return default(T);
-            }
             else
-            {
                 return deck[index];
-            }
         }
 
         /// <summary>
@@ -77,18 +76,14 @@ namespace Lab06_Collections.Classes
         public Deck<Card> ShowSuit(Suit suit)
         {
             Deck<Card> DeckToReturn = new Deck<Card>();
-
             for (int i = 0; i < counter; i++)
             {
                 Card temp = (Card)Convert.ChangeType(deck[i], typeof(Card));
-                
                 if (temp.Suit == suit)
-                {
                     DeckToReturn.Add(temp);
-                }
             }
             return DeckToReturn;
-        }
+        }        
 
         /// <summary>
         /// Creates a foreach method for use by the deck collection
